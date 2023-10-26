@@ -2,16 +2,20 @@ import ReactFlow, { Controls, Background } from 'reactflow';
 import 'reactflow/dist/style.css';
 import requirements from './templete'
 
+
+const colors = ["",'#FF8080', '#FFD080', '#A8E9FF',"#ECFEEC"];
+
 const nodes = [
-  { id: 'node-1', data: { label: 'Node 1', tooltip: 'This is Node 1' }, position: { x: 100, y: 100 } },
-  { id: 'node-2', data: { label: 'Node 2', tooltip: 'This is Node 2' }, position: { x: 200, y: 200 } },
+  { id: 'node-1', data: { label: 'Node 1',color: 'lightblue' }, position: { x: 100, y: 100 } },
+  { id: 'node-2', data: { label: 'Node 2',color: 'lightblue' }, position: { x: 200, y: 200 } },
   // Add more nodes with tooltips as needed
 ];
-function generateNodesFromNames(nodeNames) {
-  return nodeNames.map((nodeName, index) => {
+function generateNodesFromNames(nodeProperties) {
+  return nodeProperties.map((node, index) => {
     return {
-      id: `node-${index}`,
-      data: { label: nodeName, tooltip:"Hello" },
+      id: node['requirements Identifier'],
+      data: { label: node['requirements text']},
+      background:  colors[node['Priority']] ,
       position: { x: 100 * index, y: 100 * index}, // Adjust the position as needed
     };
   });
@@ -19,11 +23,13 @@ function generateNodesFromNames(nodeNames) {
 
 function Flow() {
 
-  const requirementIdentifiers = requirements.map(requirement => requirement['requirements Identifier']);
-  const nodesArray = generateNodesFromNames(requirementIdentifiers);
+  const nodesArray = generateNodesFromNames(requirements);
   const nodeElements = nodesArray.map((node) => ({
     id: node.id,
-    data: node.data,
+    data: {
+      label: node.data.label,
+    },
+    style: { background: node.background },
     position: node.position,
   }));
 

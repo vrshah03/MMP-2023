@@ -4,7 +4,7 @@ let requirements = [{
     "Rel" : 1,
     "dep": ['OR', "REQ001", ['AND', "REQ002","REQ003"],"REQ004"],
     "Module" : "from processing",
-    "Priority" : "",
+    "Priority" : 1,
     "Risk" : "",
   },
   {
@@ -13,7 +13,7 @@ let requirements = [{
     "Rel" : 0,
     "dep": [],
     "Module" : "",
-    "Priority" : "",
+    "Priority" : 3,
     "Risk" : "",
   },
   {
@@ -22,7 +22,7 @@ let requirements = [{
     "Rel" : 0,
     "dep": [],
     "Module" : "login",
-    "Priority" : "",
+    "Priority" : 2,
     "Risk" : "",
   },
   {
@@ -31,7 +31,7 @@ let requirements = [{
     "Rel" : 0,
     "dep": [],
     "Module" : "login",
-    "Priority" : "",
+    "Priority" : 2,
     "Risk" : "",
   },
   {
@@ -40,7 +40,7 @@ let requirements = [{
     "Rel" : 0,
     "dep": [],
     "Module" : "",
-    "Priority" : "",
+    "Priority" : 4,
     "Risk" : "",
   },]
 

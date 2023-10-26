@@ -4,9 +4,10 @@ let edgeList =[];
 let IntermidiateNodes = [];
 let booleanOperator = ['AND','OR','NOT'];
 const colors = ["",'#FF8080', '#FFD080', '#A8E9FF',"#ECFEEC"];
+
     //IntermidiateNode Genration
     let IntermidiateNodeCounter = 1;
-    function makeNode(child){
+    function makeNode(child, boolLabel){
         IntermidiateNodes.push({
             id: `I${IntermidiateNodeCounter}`,
             data: { label: `I${IntermidiateNodeCounter}` },
@@ -15,18 +16,19 @@ const colors = ["",'#FF8080', '#FFD080', '#A8E9FF',"#ECFEEC"];
                 y: Math.random() * 500,
               },
         })
-        edgeList.push({ id: `I${IntermidiateNodeCounter}-${child}`, source: `I${IntermidiateNodeCounter}`, target: child })
+        edgeList.push({ id: `I${IntermidiateNodeCounter}-${child}`, source: `I${IntermidiateNodeCounter}`, target: child , label: boolLabel})
         return `I${IntermidiateNodeCounter++}`;
 
     }
     //edge genration
     function makeEdge(arr,child){
         console.log("function called for",child,arr)
+        let boolLabel;
         arr.map((e)=>{
-            if(booleanOperator.includes(e)) {}
-            else if(typeof(e) == 'string') edgeList.push({ id: `${e}-${child}`, source: e, target: child })
+            if(booleanOperator.includes(e)) {boolLabel = e}
+            else if(typeof(e) == 'string') edgeList.push({ id: `${e}-${child}`, source: e, target: child,  label: boolLabel })
             else {
-                let tempName = makeNode(child);
+                let tempName = makeNode(child, boolLabel);
                 makeEdge(e, tempName);
             }
         })

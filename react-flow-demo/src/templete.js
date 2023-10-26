@@ -1,5 +1,5 @@
 //Priorities are 1,2,3, and 4 (highest to lowest)
-const requirements = [{
+const req1 = [{
     "requirements Identifier" : "REQ005",
     "requirements text" : "login",
     "Rel" : 1,
@@ -45,5 +45,53 @@ const requirements = [{
     "Risk" : "",
   },]
 
-  export default requirements;
+  const req2 = [
+    {
+      "requirements Identifier": "REQ101",
+      "requirements text": "User profile creation",
+      "Rel": 1,
+      "dep": ["REQ102", "REQ103"],
+      "Module": "User Management",
+      "Priority": 2,
+      "Risk": "Low"
+    },
+    {
+      "requirements Identifier": "REQ102",
+      "requirements text": "User registration",
+      "Rel": 0,
+      "dep": [],
+      "Module": "Authentication",
+      "Priority": 3,
+      "Risk": "Medium"
+    },
+    {
+      "requirements Identifier": "REQ103",
+      "requirements text": "User authentication",
+      "Rel": 0,
+      "dep": [],
+      "Module": "Authentication",
+      "Priority": 2,
+      "Risk": "Low"
+    },
+    {
+      "requirements Identifier": "REQ104",
+      "requirements text": "User profile editing",
+      "Rel": 1,
+      "dep": ["REQ101"],
+      "Module": "User Management",
+      "Priority": 4,
+      "Risk": "Medium"
+    },
+    {
+      "requirements Identifier": "REQ105",
+      "requirements text": "Admin role creation",
+      "Rel": 0,
+      "dep": [],
+      "Module": "User Management",
+      "Priority": 3,
+      "Risk": "High"
+    }
+  ]
+  
+  export default req1;
   // module.exports = requirements;

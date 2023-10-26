@@ -1,3 +1,4 @@
+//Priorities are 1,2,3, and 4 (highest to lowest)
 let requirements = [{
     "requirements Identifier" : "REQ005",
     "requirements text" : "login",
@@ -45,3 +46,4 @@ let requirements = [{
   },]
 
   export default requirements;
+  // module.exports = requirements;

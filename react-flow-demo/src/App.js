@@ -1,15 +1,12 @@
 import ReactFlow, { Controls, Background, EdgeTypes } from 'reactflow';
 import 'reactflow/dist/style.css';
 import requirements from './templete'
-// import edgeMaker from './edgeMaker'
+import {edgeList,IntermidiateNodes} from './edgeMaker'
 
-// edgeMaker();
 const colors = ["",'#FF8080', '#FFD080', '#A8E9FF',"#ECFEEC"];
 
-const edgesArray = [
-  { id: 'REQ001-REQ005', source: 'REQ001', target: 'REQ005' },
-  { id: 'REQ004-REQ005', source: 'REQ004', target: 'REQ005' }
-]
+
+const edgesArray =  edgeList;
 
 function generateNodesFromNames(nodeProperties) {
   return nodeProperties.map((node, index) => {
@@ -17,7 +14,8 @@ function generateNodesFromNames(nodeProperties) {
       id: node['requirements Identifier'],
       data: { label: node['requirements text']},
       background:  colors[node['Priority']] ,
-      position: { x: 100 * index, y: 100 * index}, // Adjust the position as needed
+      position: { x: Math.random() * 500,
+                  y: Math.random() * 500, }, // Adjust the position as needed
     };
   });
 }
@@ -32,6 +30,7 @@ function Flow() {
     position: node.position,
   }));
 
+  nodeElements.push(...IntermidiateNodes);
   return (
     <div style={{ width: '100%', height: '500px' }}>
       <ReactFlow nodes={nodeElements} edges={edgesArray}>

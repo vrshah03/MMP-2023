@@ -1,22 +1,31 @@
-// import requirements from './templete'
-const requirements = require('./templete.js');
+import requirements from './templete';
+// const requirements = require('./templete.js');
 let edgeList =[];
+let IntermidiateNodes = [];
+let booleanOperator = ['AND','OR','NOT'];
+    let IntermidiateNodeCounter = 1;
+    function makeNode(child){
+        IntermidiateNodes.push({
+            id: `I${IntermidiateNodeCounter}`,
+            data: { label: `I${IntermidiateNodeCounter}` },
+            position: {
+                x: Math.random() * 500,
+                y: Math.random() * 500,
+              },
+        })
+        edgeList.push({ id: `I${IntermidiateNodeCounter}-${child}`, source: `I${IntermidiateNodeCounter}`, target: child })
+        return `I${IntermidiateNodeCounter++}`;
 
-    // let IntermidiateNodeCounter = 1;
-    // makeNode = () => {
-    //     nodeElements.push({
-    //         id: `I${IntermidiateNodeCounter}`,
-    //         data: { label: `I${IntermidiateNodeCounter}` },
-    //         position: Math.random() * 500,
-    //     })
-    //     return `I${IntermidiateNodeCounter}`
-    // }
+    }
 
-    makeEdge = (arr,child) =>{
+    function makeEdge(arr,child){
+        console.log("function called for",child,arr)
         arr.map((e)=>{
-            if(typeof(e) == 'string') edgeList.push({ id: `${e}-${child}`, source: e, target: child })
+            if(booleanOperator.includes(e)) {}
+            else if(typeof(e) == 'string') edgeList.push({ id: `${e}-${child}`, source: e, target: child })
             else {
-                // makeEdge(e, makeNode());
+                let tempName = makeNode(child);
+                makeEdge(e, tempName);
             }
         })
     }
@@ -27,4 +36,4 @@ let edgeList =[];
     })
 
 console.log(edgeList);
-// export default edgeMaker;
+export {edgeList,IntermidiateNodes};

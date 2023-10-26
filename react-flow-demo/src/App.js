@@ -1,4 +1,5 @@
-import ReactFlow, { Controls, Background, EdgeTypes } from 'reactflow';
+import { useCallback, useState } from 'react';
+import ReactFlow, { Controls, Background, applyEdgeChanges, applyNodeChanges } from 'reactflow';
 import 'reactflow/dist/style.css';
 import requirements from './templete'
 import {edgeList,IntermidiateNodes} from './edgeMaker'
@@ -31,9 +32,23 @@ function Flow() {
   }));
 
   nodeElements.push(...IntermidiateNodes);
+
+  const [nodes, setNodes] = useState(nodeElements);
+  const [edges, setEdges] = useState(edgesArray);
+
+  const onNodesChange = useCallback(
+    (changes) => setNodes((nds) => applyNodeChanges(changes, nds)),
+    [setNodes]
+  );
+  const onEdgesChange = useCallback(
+    (changes) => setEdges((eds) => applyEdgeChanges(changes, eds)),
+    [setEdges]
+  );
+
   return (
     <div style={{ width: '100%', height: '500px' }}>
-      <ReactFlow nodes={nodeElements} edges={edgesArray}>
+      <ReactFlow nodes={nodes} edges={edges} onNodesChange={onNodesChange}
+      onEdgesChange={onEdgesChange} fitView>
         <Background />
         <Controls />
       </ReactFlow>

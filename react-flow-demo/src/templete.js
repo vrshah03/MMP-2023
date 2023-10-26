@@ -1,4 +1,9 @@
 //Priorities are 1,2,3, and 4 (highest to lowest)
+/*Requirements of 
+priority 1 are mandatory for the first implementation; 
+priority 2 are mandatory for the final implementation; 
+priority 3 is used for optional features that the client would like to have; 
+priority 4 is used for optional features.*/
 const req1 = [{
     "requirements Identifier" : "REQ005",
     "requirements text" : "login",

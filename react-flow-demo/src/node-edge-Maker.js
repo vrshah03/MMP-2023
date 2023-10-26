@@ -1,14 +1,14 @@
 import requirements from './templete';
 // const requirements = require('./templete.js');
 let edgeList =[];
-let IntermidiateNodes = [];
+let IntermediateNodes = [];
 let booleanOperator = ['AND','OR','NOT'];
 const colors = ["",'#FF8080', '#FFD080', '#A8E9FF',"#ECFEEC"];
 
-    //IntermidiateNode Genration
+    //Intermediate Node Genration
     let IntermidiateNodeCounter = 1;
     function makeNode(child, boolLabel){
-        IntermidiateNodes.push({
+        IntermediateNodes.push({
             id: `I${IntermidiateNodeCounter}`,
             data: { label: `I${IntermidiateNodeCounter}` },
             position: {
@@ -48,6 +48,6 @@ const colors = ["",'#FF8080', '#FFD080', '#A8E9FF',"#ECFEEC"];
                 y: Math.random() * 500, }, // Adjust the position as needed,
     }));
 
-    nodeElements.push(...IntermidiateNodes);
+    nodeElements.push(...IntermediateNodes);
 
 export {edgeList,nodeElements};

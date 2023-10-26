@@ -10,6 +10,8 @@
     "react-dom": "^18.2.0",
     "react-flow-renderer": "^10.3.17",
     "react-scripts": "5.0.1",
+    "react-tooltip": "^5.21.6",
+    "reactflow": "^11.9.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

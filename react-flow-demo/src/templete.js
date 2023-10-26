@@ -43,3 +43,5 @@ let requirements = [{
     "Priority" : "",
     "Risk" : "",
   },]
+
+  export default requirements;

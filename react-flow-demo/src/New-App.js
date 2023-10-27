@@ -8,7 +8,7 @@ import ReactFlow, {
   useReactFlow,
 } from 'reactflow';
 
-import {edgeList,nodeElements} from './node-edge-Maker'
+import { edgeList, nodeElements } from './node-edge-Maker'
 import 'reactflow/dist/style.css';
 
 const g = new Dagre.graphlib.Graph().setDefaultEdgeLabel(() => ({}));
@@ -59,8 +59,14 @@ const LayoutFlow = () => {
       fitView
     >
       <Panel position="top-right">
-        <button onClick={() => onLayout('TB')}>vertical layout</button>
-        <button onClick={() => onLayout('LR')}>horizontal layout</button>
+        <div>
+          <button onClick={() => onLayout('TB')}>vertical layout</button>
+          <button onClick={() => onLayout('LR')}>horizontal layout</button>
+        </div>
+        <div>
+          <button >Priority View</button>
+          <button >Risk View</button>
+        </div>
       </Panel>
     </ReactFlow>
   );
@@ -69,9 +75,9 @@ const LayoutFlow = () => {
 export default function () {
   return (
     <div style={{ width: '100%', height: '500px' }}>
-    <ReactFlowProvider>
-      <LayoutFlow />
-    </ReactFlowProvider>
+      <ReactFlowProvider>
+        <LayoutFlow />
+      </ReactFlowProvider>
     </div>
   );
 }

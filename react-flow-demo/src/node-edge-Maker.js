@@ -2,12 +2,18 @@ import requirements from './templete';
 // const requirements = require('./templete.js');
 let edgeList =[];
 let IntermediateNodes = [];
+let viewType = "Risk";
 let booleanOperator = ['AND','OR','NOT'];
-const colors = ["",'#FF8080', '#FFD080', '#A8E9FF',"#ECFEEC"];
-const redShades = ["",'#FF5733','#FF6F61','#FF9999','#FFCCCC' ];
-const blueShades = ["",'#1a53ff','#3366FF','#99CCFF','#E6F7FF']
+const colors = {
+    // "default" : {1: '#FF8080', 2: '#FFD080', 3: '#A8E9FF',4:"#ECFEEC"},
+    "Priority" : {1:'#FF5733',2:'#FF6F61',3:'#FF9999',4:'#FFCCCC' },
+    "Risk" : {Critical:'#1a53ff',High: '#3366FF',Medium: '#99CCFF',Low: '#E6F7FF'},
+}
   
-
+export function setViewType(type){
+    viewType = type;
+    console.log(viewType)
+}
     //Intermediate Node Genration
     let IntermidiateNodeCounter = 1;
     function makeNode(child, boolLabel){
@@ -46,7 +52,7 @@ const blueShades = ["",'#1a53ff','#3366FF','#99CCFF','#E6F7FF']
     const nodeElements = requirements.map((node) => ({
       id: node['requirements Identifier'],
       data: { label: node['requirements text'] },
-      style: { background: redShades[node['Priority']] },
+      style: { background: colors[viewType][node[viewType]] },
       position: { x: Math.random() * 500,
                 y: Math.random() * 500, }, // Adjust the position as needed,
     }));

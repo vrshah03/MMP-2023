@@ -11,7 +11,7 @@ const req1 = [{
     "dep": ['OR', "REQ001", ['AND', "REQ002","REQ003"],"REQ004"],
     "Module" : "from processing",
     "Priority" : 1,
-    "Risk" : "",
+    "Risk" : "Critical",
   },
   {
     "requirements Identifier" : "REQ001",
@@ -20,7 +20,7 @@ const req1 = [{
     "dep": [],
     "Module" : "",
     "Priority" : 3,
-    "Risk" : "",
+    "Risk" : "Low",
   },
   {
     "requirements Identifier" : "REQ002",
@@ -29,7 +29,7 @@ const req1 = [{
     "dep": [],
     "Module" : "login",
     "Priority" : 2,
-    "Risk" : "",
+    "Risk" : "Medium",
   },
   {
     "requirements Identifier" : "REQ003",
@@ -38,7 +38,7 @@ const req1 = [{
     "dep": [],
     "Module" : "login",
     "Priority" : 2,
-    "Risk" : "",
+    "Risk" : "Critical",
   },
   {
     "requirements Identifier" : "REQ004",
@@ -47,7 +47,7 @@ const req1 = [{
     "dep": [],
     "Module" : "",
     "Priority" : 4,
-    "Risk" : "",
+    "Risk" : "Low",
   },]
 
   const req2 = [

@@ -43,15 +43,15 @@ export function setViewType(type){
         })
     }
     requirements.map(requirement => {
-        if(requirement['dep'].length>0){
-            makeEdge(requirement['dep'],requirement['requirements Identifier']);
+        if(requirement["Dependencies"].length>0){
+            makeEdge(requirement["Dependencies"],requirement['Requirement Identifier']);
         }
     })
 
     // Node Genration
     const nodeElements = requirements.map((node) => ({
-      id: node['requirements Identifier'],
-      data: { label: node['requirements text'] },
+      id: node['Requirement Identifier'],
+      data: { label: node['Requirement Text'] },
       style: { background: colors[viewType][node[viewType]] },
       position: { x: Math.random() * 500,
                 y: Math.random() * 500, }, // Adjust the position as needed,

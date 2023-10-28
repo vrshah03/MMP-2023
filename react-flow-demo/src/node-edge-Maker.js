@@ -5,7 +5,7 @@ let IntermediateNodes = [];
 let viewType = "Priority";
 let booleanOperator = ['AND','OR','NOT'];
 const colors = {
-    // "default" : {1: '#FF8080', 2: '#FFD080', 3: '#A8E9FF',4:"#ECFEEC"},
+    "default" : {1: '#FF8080', 2: '#FFD080', 3: '#A8E9FF',4:"#ECFEEC"},
     "Priority" : {1:'#FF5733',2:'#FF6F61',3:'#FF9999',4:'#FFCCCC' },
     "Risk" : {Critical:'#1a53ff',High: '#3366FF',Medium: '#99CCFF',Low: '#E6F7FF'},
 }
@@ -13,6 +13,11 @@ const colors = {
 export function setViewType(type){
     viewType = type;
     return setColor(viewType);
+}
+
+export function setModuleConnectivity(type){
+    console.log(setModule(type))
+    return setModule(type);
 }
     //Intermediate Node Genration
     let IntermidiateNodeCounter = 1;
@@ -50,8 +55,8 @@ export function setViewType(type){
     // Node Genration
     let nodeElements = requirements.map((node) => ({
       id: node['Requirement Identifier'],
-      data: { label: node['Requirement Text'], Priority:node["Priority"], Risk: node["Risk"] },
-      style: { background: colors[viewType][node[viewType]] },
+      data: { label: node['Requirement Text'], Priority:node["Priority"], Risk: node["Risk"], Module : node["Module"] },
+      style: { background: colors["default"][node[viewType]] },
       position: { x: Math.random() * 500,
                 y: Math.random() * 500, }, // Adjust the position as needed,
         // parentNode: node["Module"],
@@ -91,6 +96,19 @@ export function setViewType(type){
     }
 
     
-
+    const setModule = (setType) =>{
+        nodeElements = nodeElements.map(node => {
+            if (node.data && node.data["Module"]) {
+              if(setType == "Connect")  {
+                    return{...node,parentNode : node.data["Module"], zIndex: 1,};
+                }
+                else{
+                    return{...node, parentNode : "",};
+                }
+            }
+            return node;
+          });
+        return nodeElements;
+    }
     nodeElements.push(...IntermediateNodes,...groupNodes);
 export {edgeList,nodeElements};

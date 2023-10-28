@@ -8,7 +8,7 @@ import ReactFlow, {
   useReactFlow,
 } from 'reactflow';
 
-import { setViewType, edgeList, nodeElements } from './node-edge-Maker'
+import { setViewType, setModuleConnectivity, edgeList, nodeElements } from './node-edge-Maker'
 import 'reactflow/dist/style.css';
 
 const g = new Dagre.graphlib.Graph().setDefaultEdgeLabel(() => ({}));
@@ -60,6 +60,16 @@ const LayoutFlow = () => {
       return New;
     });
   }
+
+  const moduleButton = (type) => {
+    const New = setModuleConnectivity(type);
+    setNodes((prevNodes) => {
+      // Create a copy of the previous nodes array and remove the last node
+      // const newNodeArray = [...prevNodes];
+      // newNodeArray.pop();
+      return New;
+    });
+  }
   
   
   return (
@@ -86,12 +96,12 @@ const LayoutFlow = () => {
   <div>
     <h4>Module: </h4>
     <label>
-      <input type="radio" name="moduleState" value="Show"  />
-      Show
+      <input type="radio" name="moduleState" value="Show"  onClick = {()=> moduleButton("Connect")}/>
+      Connect
     </label>
     <label>
-      <input type="radio" name="moduleState" value="Hide"  />
-      Hide
+      <input type="radio" name="moduleState" value="Hide"  onClick = {()=> moduleButton("Release")}/>
+      Release
     </label>
   </div>
   <h4>View: </h4>

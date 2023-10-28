@@ -71,23 +71,40 @@ const LayoutFlow = () => {
       fitView
     >
       <Panel position="top-right">
-        <h3>options: </h3>
-        <div>
-          <h4>Layout: </h4>
-          <button onClick={() => onLayout('TB')}>vertical layout</button>
-          <button onClick={() => onLayout('LR')}>horizontal layout</button>
-        </div>
-        <div>
-        <h4>View: </h4>
-          <button onClick={() => ViewButton('Priority')}>Priority View</button>
-          <button onClick={() => ViewButton('Risk')}>Risk View</button>
-        </div>
-        <div>
-        <h4>Module: </h4>
-          <button>Show</button>
-          <button>Hide</button>
-        </div>
-      </Panel>
+  <h3>Options:</h3>
+  <div>
+    <h4>Layout: </h4>
+    <label>
+      <input type="radio" name="layout" value="TB" onClick={() => onLayout('TB')} />
+      Vertical Layout
+    </label>
+    <label>
+      <input type="radio" name="layout" value="LR" onClick={() => onLayout('LR')} />
+      Horizontal Layout
+    </label>
+  </div>
+  <div>
+    <h4>Module: </h4>
+    <label>
+      <input type="radio" name="moduleState" value="Show"  />
+      Show
+    </label>
+    <label>
+      <input type="radio" name="moduleState" value="Hide"  />
+      Hide
+    </label>
+  </div>
+  <h4>View: </h4>
+  <div>
+    <input type="radio" name="view" value="Priority" id="priorityView" onClick={() => ViewButton('Priority')} />
+    <label htmlFor="priorityView">Priority View</label>
+  </div>
+  <div>
+    <input type="radio" name="view" value="Risk" id="riskView" onClick={() => ViewButton('Risk')} />
+    <label htmlFor="riskView">Risk View</label>
+  </div>
+</Panel>
+
     </ReactFlow>
   );
 };

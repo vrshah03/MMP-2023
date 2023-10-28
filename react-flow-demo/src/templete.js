@@ -4,7 +4,7 @@ priority 1 are mandatory for the first implementation;
 priority 2 are mandatory for the final implementation; 
 priority 3 is used for optional features that the client would like to have; 
 priority 4 is used for optional features.*/
-const requirements = [{
+const req1 = [{
     "Requirement Identifier" : "REQ005",
     "Requirement Text" : "login",
     "Requirement Relationship" : 1,
@@ -190,5 +190,5 @@ const req3=[
   },
 ]
   
-  export {requirements, req3};
+  export {req1, req3};
   // module.exports = requirements;

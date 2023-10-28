@@ -1,6 +1,6 @@
-import {requirements, req3} from './templete.js';
-import { req } from './FirstPage.js';
+import {req1, req3} from './templete.js';
 // const requirements = require('./templete.js');
+let requirements = localStorage.getItem('l_req') ? JSON.parse(localStorage.getItem('l_req')) : req1;
 let edgeList =[];
 let IntermediateNodes = [];
 let viewType = "Priority";
@@ -10,8 +10,7 @@ const colors = {
     "Priority" : {1:'#FF5733',2:'#FF6F61',3:'#FF9999',4:'#FFCCCC' },
     "Risk" : {Critical:'#1a53ff',High: '#3366FF',Medium: '#99CCFF',Low: '#E6F7FF'},
 }
-// const [stateValue, setStateValue] = req('initialValue');
-// console.log(stateValue)
+
 export function setViewType(type,nodes){
     viewType = type;
     return setColor(viewType,nodes);

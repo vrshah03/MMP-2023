@@ -190,5 +190,5 @@ const req3=[
   },
 ]
   
-  export default req1;
+  export default req3;
   // module.exports = requirements;

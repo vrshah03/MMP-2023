@@ -110,4 +110,25 @@ export function setModuleConnectivity(type,nodes){
         return nodeElements;
     }
     nodeElements.push(...IntermediateNodes,...groupNodes);
-export {edgeList,nodeElements};
+
+    let parameterContainer= {};
+    edgeList.map((edge)=>{
+        if(edge.target in parameterContainer){
+            parameterContainer[edge.target][1].push(edge.source);
+        }
+        else{
+            parameterContainer[edge.target] = [edge.label,[edge.source]];
+        }
+    })
+    console.log(parameterContainer)
+
+    let booleanExpressions = [];
+    for(const group in parameterContainer){
+        let ex = `${group} = `;
+        parameterContainer[group][1].map((src,index)=>{
+            ex += " " + src +" "+ (index == parameterContainer[group][1].length-1 ? "" : parameterContainer[group][0]);
+        })
+
+        booleanExpressions.push(ex);
+    }
+export {edgeList,nodeElements, booleanExpressions};

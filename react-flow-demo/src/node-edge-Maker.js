@@ -1,4 +1,5 @@
-import requirements from './templete';
+import {requirements, req3} from './templete.js';
+import { req } from './FirstPage.js';
 // const requirements = require('./templete.js');
 let edgeList =[];
 let IntermediateNodes = [];
@@ -9,7 +10,8 @@ const colors = {
     "Priority" : {1:'#FF5733',2:'#FF6F61',3:'#FF9999',4:'#FFCCCC' },
     "Risk" : {Critical:'#1a53ff',High: '#3366FF',Medium: '#99CCFF',Low: '#E6F7FF'},
 }
-  
+// const [stateValue, setStateValue] = req('initialValue');
+// console.log(stateValue)
 export function setViewType(type,nodes){
     viewType = type;
     return setColor(viewType,nodes);
@@ -120,7 +122,6 @@ export function setModuleConnectivity(type,nodes){
             parameterContainer[edge.target] = [edge.label,[edge.source]];
         }
     })
-    console.log(parameterContainer)
 
     let booleanExpressions = [];
     for(const group in parameterContainer){

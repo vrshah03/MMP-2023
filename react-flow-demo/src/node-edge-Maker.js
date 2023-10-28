@@ -16,7 +16,6 @@ export function setViewType(type,nodes){
 }
 
 export function setModuleConnectivity(type,nodes){
-    // console.log("simple",setModule(type))
     return setModule(type,nodes);
 }
     //Intermediate Node Genration
@@ -97,7 +96,6 @@ export function setModuleConnectivity(type,nodes){
 
     
     const setModule = (setType,nodes) =>{
-        console.log(nodes)
         nodeElements = nodes.map(node => {
             if (node.data && node.data["Module"]) {
               if(setType == "Connect")  {

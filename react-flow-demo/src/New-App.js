@@ -113,6 +113,9 @@ const LayoutFlow = () => {
     <input type="radio" name="view" value="Risk" id="riskView" onClick={() => ViewButton('Risk')} />
     <label htmlFor="riskView">Risk View</label>
   </div>
+  <div>
+    <h4>Bolean expressions for this graph:</h4>
+  </div>
 </Panel>
 
     </ReactFlow>

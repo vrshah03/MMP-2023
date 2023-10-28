@@ -29,7 +29,7 @@ const req1 = [{
     "Dependencies": [],
     "Module" : "login",
     "Priority" : 2,
-    "Risk" : "Medium",
+    "Risk" : "Low",
   },
   {
     "Requirement Identifier" : "REQ003",
@@ -38,7 +38,7 @@ const req1 = [{
     "Dependencies": [],
     "Module" : "login",
     "Priority" : 2,
-    "Risk" : "Critical",
+    "Risk" : "Low",
   },
   {
     "Requirement Identifier" : "REQ004",
@@ -50,53 +50,53 @@ const req1 = [{
     "Risk" : "Low",
   },]
 
-  const req2 = [
-    {
-      "Requirement Identifier": "REQ101",
-      "Requirement Text": "User profile creation",
-      "Requirement Relationship": 1,
-      "Dependencies": ["REQ102", "REQ103"],
-      "Module": "User Management",
-      "Priority": 2,
-      "Risk": "Low"
-    },
-    {
-      "Requirement Identifier": "REQ102",
-      "Requirement Text": "User registration",
-      "Requirement Relationship": 0,
-      "Dependencies": [],
-      "Module": "Authentication",
-      "Priority": 3,
-      "Risk": "Medium"
-    },
-    {
-      "Requirement Identifier": "REQ103",
-      "Requirement Text": "User authentication",
-      "Requirement Relationship": 0,
-      "Dependencies": [],
-      "Module": "Authentication",
-      "Priority": 2,
-      "Risk": "Low"
-    },
-    {
-      "Requirement Identifier": "REQ104",
-      "Requirement Text": "User profile editing",
-      "Requirement Relationship": 1,
-      "Dependencies": ["REQ101"],
-      "Module": "User Management",
-      "Priority": 4,
-      "Risk": "Medium"
-    },
-    {
-      "Requirement Identifier": "REQ105",
-      "Requirement Text": "Admin role creation",
-      "Requirement Relationship": 0,
-      "Dependencies": [],
-      "Module": "User Management",
-      "Priority": 3,
-      "Risk": "High"
-    }
-  ]
+const req2 = [
+  {
+    "Requirement Identifier": "REQ101",
+    "Requirement Text": "User profile creation",
+    "Requirement Relationship": 1,
+    "Dependencies": ["REQ102", "REQ103"],
+    "Module": "User Management",
+    "Priority": 2,
+    "Risk": "Low"
+  },
+  {
+    "Requirement Identifier": "REQ102",
+    "Requirement Text": "User registration",
+    "Requirement Relationship": 0,
+    "Dependencies": [],
+    "Module": "Authentication",
+    "Priority": 3,
+    "Risk": "Medium"
+  },
+  {
+    "Requirement Identifier": "REQ103",
+    "Requirement Text": "User authentication",
+    "Requirement Relationship": 0,
+    "Dependencies": [],
+    "Module": "Authentication",
+    "Priority": 2,
+    "Risk": "Low"
+  },
+  {
+    "Requirement Identifier": "REQ104",
+    "Requirement Text": "User profile editing",
+    "Requirement Relationship": 1,
+    "Dependencies": ["REQ101"],
+    "Module": "User Management",
+    "Priority": 4,
+    "Risk": "Medium"
+  },
+  {
+    "Requirement Identifier": "REQ105",
+    "Requirement Text": "Admin role creation",
+    "Requirement Relationship": 0,
+    "Dependencies": [],
+    "Module": "User Management",
+    "Priority": 3,
+    "Risk": "High"
+  }
+]
   
   export default req1;
   // module.exports = requirements;

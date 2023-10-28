@@ -1,5 +1,5 @@
 import Dagre from '@dagrejs/dagre';
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import ReactFlow, {
   ReactFlowProvider,
   Panel,
@@ -35,6 +35,7 @@ const LayoutFlow = () => {
   const { fitView } = useReactFlow();
   const [nodes, setNodes, onNodesChange] = useNodesState(nodeElements);
   const [edges, setEdges, onEdgesChange] = useEdgesState(edgeList);
+  // console.log("Layout Rendered")
 
   const onLayout = useCallback(
     (direction) => {
@@ -50,6 +51,17 @@ const LayoutFlow = () => {
     [nodes, edges]
   );
 
+  const ViewButton = (type) => {
+    const New = setViewType(type);
+    setNodes((prevNodes) => {
+      // Create a copy of the previous nodes array and remove the last node
+      // const newNodeArray = [...prevNodes];
+      // newNodeArray.pop();
+      return New;
+    });
+  }
+  
+  
   return (
     <ReactFlow
       nodes={nodes}
@@ -67,8 +79,13 @@ const LayoutFlow = () => {
         </div>
         <div>
         <h4>View: </h4>
-          <button onClick={() => setViewType('Priority')}>Priority View</button>
-          <button onClick={() => setViewType('Risk')}>Risk View</button>
+          <button onClick={() => ViewButton('Priority')}>Priority View</button>
+          <button onClick={() => ViewButton('Risk')}>Risk View</button>
+        </div>
+        <div>
+        <h4>Module: </h4>
+          <button>Show</button>
+          <button>Hide</button>
         </div>
       </Panel>
     </ReactFlow>

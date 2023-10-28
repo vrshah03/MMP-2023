@@ -2,7 +2,7 @@ import requirements from './templete';
 // const requirements = require('./templete.js');
 let edgeList =[];
 let IntermediateNodes = [];
-let viewType = "Risk";
+let viewType = "Priority";
 let booleanOperator = ['AND','OR','NOT'];
 const colors = {
     // "default" : {1: '#FF8080', 2: '#FFD080', 3: '#A8E9FF',4:"#ECFEEC"},
@@ -12,7 +12,7 @@ const colors = {
   
 export function setViewType(type){
     viewType = type;
-    console.log(viewType)
+    return setColor(viewType);
 }
     //Intermediate Node Genration
     let IntermidiateNodeCounter = 1;
@@ -31,7 +31,6 @@ export function setViewType(type){
     }
     //edge genration
     function makeEdge(arr,child){
-        console.log("function called for",child,arr)
         let boolLabel;
         arr.map((e)=>{
             if(booleanOperator.includes(e)) {boolLabel = e}
@@ -49,14 +48,49 @@ export function setViewType(type){
     })
 
     // Node Genration
-    const nodeElements = requirements.map((node) => ({
+    let nodeElements = requirements.map((node) => ({
       id: node['Requirement Identifier'],
-      data: { label: node['Requirement Text'] },
+      data: { label: node['Requirement Text'], Priority:node["Priority"], Risk: node["Risk"] },
       style: { background: colors[viewType][node[viewType]] },
       position: { x: Math.random() * 500,
                 y: Math.random() * 500, }, // Adjust the position as needed,
+        // parentNode: node["Module"],
+        draggable: true,
     }));
 
-    nodeElements.push(...IntermediateNodes);
+    //Adding Boxes for parent Node
+    const groupNodes = requirements.filter((node) => node["Module"] && node["Module"].length > 0).
+    map((node) =>{
+        return {
+            id: node["Module"],
+            data: { label: node["Module"] },
+            type: 'input',
+            position: { x: Math.random() * 500,
+                        y: Math.random() * 500, },
+            style: {
+                backgroundColor: 'rgba(255, 0, 255, 0.2)',
+                width: 200,
+                height: 50,
+                }
+        }
+    })
 
+    //Changine node color according to type
+    const setColor = (viewType) => {
+
+        nodeElements = nodeElements.map(node => {
+            if (node.data && node.data[viewType]) {
+              return{
+                ...node,
+                style : { background: colors[viewType][node.data[viewType]] },
+            };
+            }
+            return node;
+          });
+        return nodeElements;
+    }
+
+    
+
+    nodeElements.push(...IntermediateNodes,...groupNodes);
 export {edgeList,nodeElements};

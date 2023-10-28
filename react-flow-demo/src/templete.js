@@ -97,6 +97,98 @@ const req2 = [
     "Risk": "High"
   }
 ]
+const req3=[
+  {
+    "Requirement Identifier": "REQ001",
+    "Requirement Text": "The system shall authenticate users based on their username and password.",
+    "Requirement Relationship": "NO",
+    "Dependencies": [],
+    "Module": "User Management",
+    "Priority": 3,
+    "Risk": "High"
+  },
+  {
+    "Requirement Identifier": "REQ002",
+    "Requirement Text": "The system shall allow users to reset their passwords if they forget them.",
+    "Requirement Relationship": "NO",
+    "Dependencies": [],
+    "Module": "User Management",
+    "Priority": 2,
+    "Risk": "High"
+  },
+  {
+    "Requirement Identifier": "REQ003",
+    "Requirement Text": "The system shall store user preferences for customization purposes.",
+    "Requirement Relationship": "NO",
+    "Dependencies": [],
+    "Module": "User Preferences",
+    "Priority": 1,
+    "Risk": "Medium"
+  },
+  {
+    "Requirement Identifier": "REQ004",
+    "Requirement Text": "The system shall store the form data if the user selects ”Save” AND all mandatory fields are filled.",
+    "Requirement Relationship": "YES",
+    "Dependencies": ["AND","REQ001","REQ003"],
+    "Module": "Form Processing",
+    "Priority": 4,
+    "Risk": "High"
+  },
+  {
+    "Requirement Identifier": "REQ005",
+    "Requirement Text": "If the user selects ”Cancel” OR the form has not been modified, the system shall discard the form data.",
+    "Requirement Relationship": "YES",
+    "Dependencies": ["OR","REQ004","REQ006"],
+    "Module": "Form Processing",
+    "Priority": 3,
+    "Risk": "Low"
+  },
+  {
+    "Requirement Identifier": "REQ006",
+    "Requirement Text": "The system shall generate reports based on user-specified criteria.",
+    "Requirement Relationship": "NO",
+    "Dependencies": [],
+    "Module": "Reporting",
+    "Priority": 3,
+    "Risk": "Medium"
+  },
+  {
+    "Requirement Identifier": "REQ007",
+    "Requirement Text": "The system shall validate credit card information before processing payments.",
+    "Requirement Relationship": "NO",
+    "Dependencies": [],
+    "Module": "Payment Processing",
+    "Priority": 2,
+    "Risk": "High"
+  },
+  {
+    "Requirement Identifier": "REQ008",
+    "Requirement Text": "If the payment is successful, the system shall update the order status to ”Paid.”",
+    "Requirement Relationship": "YES",
+    "Dependencies": ["REQ007"],
+    "Module": "Order Management",
+    "Priority": 1,
+    "Risk": "Medium"
+  },
+  {
+    "Requirement Identifier": "REQ009",
+    "Requirement Text": "The system shall track inventory levels and generate alerts when stock is low.",
+    "Requirement Relationship": "NO",
+    "Dependencies": [],
+    "Module": "Inventory Management",
+    "Priority": 4,
+    "Risk": "High"
+  },
+  {
+    "Requirement Identifier": "REQ010",
+    "Requirement Text": "The system shall generate invoices and please send them to customers after successful purchases.",
+    "Requirement Relationship": "NO",
+    "Dependencies": [],
+    "Module": "Billing",
+    "Priority": 4,
+    "Risk": "Medium"
+  },
+]
   
   export default req1;
   // module.exports = requirements;

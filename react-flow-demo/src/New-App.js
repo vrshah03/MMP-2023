@@ -52,7 +52,7 @@ const LayoutFlow = () => {
   );
 
   const ViewButton = (type) => {
-    const New = setViewType(type);
+    const New = setViewType(type, nodes);
     setNodes((prevNodes) => {
       // Create a copy of the previous nodes array and remove the last node
       // const newNodeArray = [...prevNodes];
@@ -62,7 +62,7 @@ const LayoutFlow = () => {
   }
 
   const moduleButton = (type) => {
-    const New = setModuleConnectivity(type);
+    const New = setModuleConnectivity(type, nodes)
     setNodes((prevNodes) => {
       // Create a copy of the previous nodes array and remove the last node
       // const newNodeArray = [...prevNodes];

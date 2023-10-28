@@ -10,14 +10,14 @@ const colors = {
     "Risk" : {Critical:'#1a53ff',High: '#3366FF',Medium: '#99CCFF',Low: '#E6F7FF'},
 }
   
-export function setViewType(type){
+export function setViewType(type,nodes){
     viewType = type;
-    return setColor(viewType);
+    return setColor(viewType,nodes);
 }
 
-export function setModuleConnectivity(type){
-    console.log(setModule(type))
-    return setModule(type);
+export function setModuleConnectivity(type,nodes){
+    // console.log("simple",setModule(type))
+    return setModule(type,nodes);
 }
     //Intermediate Node Genration
     let IntermidiateNodeCounter = 1;
@@ -81,9 +81,9 @@ export function setModuleConnectivity(type){
     })
 
     //Changine node color according to type
-    const setColor = (viewType) => {
+    const setColor = (viewType, nodes) => {
 
-        nodeElements = nodeElements.map(node => {
+        nodeElements = nodes.map(node => {
             if (node.data && node.data[viewType]) {
               return{
                 ...node,
@@ -96,8 +96,9 @@ export function setModuleConnectivity(type){
     }
 
     
-    const setModule = (setType) =>{
-        nodeElements = nodeElements.map(node => {
+    const setModule = (setType,nodes) =>{
+        console.log(nodes)
+        nodeElements = nodes.map(node => {
             if (node.data && node.data["Module"]) {
               if(setType == "Connect")  {
                     return{...node,parentNode : node.data["Module"], zIndex: 1,};

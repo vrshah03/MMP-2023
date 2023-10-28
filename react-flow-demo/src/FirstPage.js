@@ -22,10 +22,23 @@ function App() {
     setMessage(`You entered: ${text}`);
   };
 
+  const isValidJSON = (text) => {
+    try {
+      JSON.parse(text);
+      return true;
+    } catch (error) {
+      return false;
+    }
+  }
+  
   const handleSubmit = () => {
-    navigate('/graph');
-    localStorage.setItem("l_req",text);
-    window.location.reload();
+    if(isValidJSON(text)){
+      navigate('/graph');
+      localStorage.setItem("l_req",text);
+      window.location.reload();
+    }else{
+      alert("Enter requirements in valid JSON format.");
+    }
   };
 
   const fillTextAreaWithExample = (exampleText) => {

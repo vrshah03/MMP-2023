@@ -7,8 +7,8 @@ let viewType = "Priority";
 let booleanOperator = ['AND','OR','NOT'];
 const colors = {
     "default" : {1: '#FF8080', 2: '#FFD080', 3: '#A8E9FF',4:"#ECFEEC"},
-    "Priority" : {1:'#FF5733',2:'#FF6F61',3:'#FF9999',4:'#FFCCCC' },
-    "Risk" : {Critical:'#1a53ff',High: '#3366FF',Medium: '#99CCFF',Low: '#E6F7FF'},
+    "Risk" : {Critical:'#FF5733',High:'#FF6F61',Medium:'#FF9999',Low:'#FFCCCC' },
+    "Priority" : {1:'#1a53ff',2: '#3366FF',3: '#99CCFF',4: '#E6F7FF'},
 }
 
 export function setViewType(type,nodes){

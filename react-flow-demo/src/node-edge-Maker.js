@@ -126,9 +126,12 @@ export function setModuleConnectivity(type,nodes){
     for(const group in parameterContainer){
         let ex = `${group} = `;
         parameterContainer[group][1].map((src,index)=>{
-            ex += " " + src +" "+ (index == parameterContainer[group][1].length-1 ? "" : parameterContainer[group][0]);
+            if(parameterContainer[group][0]=='NOT'){
+                ex += "NOT " + src 
+            }else{
+                ex += " " + src +" "+ (index == parameterContainer[group][1].length-1 ? "" : parameterContainer[group][0]);
+            }
         })
-
         booleanExpressions.push(ex);
     }
 export {edgeList,nodeElements, booleanExpressions};

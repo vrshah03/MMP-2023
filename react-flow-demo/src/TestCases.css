@@ -1,0 +1,68 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.table-container {
+    width: 80%;
+    max-height: 400px; /* Set maximum height for the table container */
+    overflow: auto;
+    margin-bottom: 20px; /* Adjust as needed */
+}
+
+.scrollable-table {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    word-wrap: break-word;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.even {
+    background-color: #f9f9f9;
+}
+
+.odd {
+    background-color: #ffffff;
+}
+
+.even-output {
+    background-color: #d4edda; 
+}
+
+.odd-output {
+    background-color: #edd4d4; 
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+}
+
+.button-container button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.button-container button:hover {
+    background-color: #0056b3;
+}

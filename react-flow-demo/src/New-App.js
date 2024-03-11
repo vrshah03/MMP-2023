@@ -1,5 +1,6 @@
 import Dagre from '@dagrejs/dagre';
 import React, { useCallback, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import ReactFlow, {
   ReactFlowProvider,
   Panel,
@@ -70,7 +71,13 @@ const LayoutFlow = () => {
     });
   }
   
-  
+  const navigate = useNavigate();
+  const handleTestcase = () => {
+      navigate('/test-case');
+  }
+  const handleMinimizedTestcase = () =>{
+    navigate('/minimization');
+  }
   return (
     <ReactFlow
       nodes={nodes}
@@ -117,6 +124,10 @@ const LayoutFlow = () => {
     {booleanExpressions.map((str, index) => (
         <p key={index}>{str}</p>
       ))}
+  </div>
+  <div>
+    <input type="button" name="view" value="Feasible Test Cases" id="riskView" onClick={() => handleTestcase()} />
+    <input type="button" name="view" value="Minimized Test Cases" id="riskView" onClick={() => handleMinimizedTestcase()} />
   </div>
 </Panel>
 

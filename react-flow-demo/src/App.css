@@ -10,3 +10,74 @@
 textarea, button {
   margin: 10px;
 }
+
+.App {
+  text-align: center;
+}
+
+ul {
+  list-style: none; /* Remove bullets from the list */
+  padding: 0;
+}
+
+.table-container {
+  margin: 20px auto;
+}
+
+.scrollable-table {
+  overflow-x: auto;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.table-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-container th, .table-container td {
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+.table-container th {
+  background-color: #f2f2f2;
+}
+
+.even {
+  background-color: #f2f2f2;
+}
+
+.even-output {
+  background-color: #eaeaea;
+}
+
+.odd {
+  background-color: #ffffff;
+}
+
+.odd-output {
+  background-color: #f9f9f9;
+}
+
+.button-conttainer {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.button-conttainer button {
+  margin: 5px;
+}
+
+.button-conttainer button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.button-conttainer button:hover {
+  background-color: #0056b3;
+}

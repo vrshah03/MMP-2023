@@ -119,14 +119,14 @@ const LayoutFlow = () => {
     <input type="radio" name="view" value="Risk" id="riskView" onClick={() => ViewButton('Risk')} />
     <label htmlFor="riskView">Risk View</label>
   </div>
+  <h4>Boolean expressions for this graph:</h4>
+  <div style={{ maxHeight: '120px', maxWidth: '300px', overflowY: 'auto' }}>
+  {booleanExpressions.map((str, index) => (
+    <p key={index}>{str}</p>
+  ))}
+</div>
   <div>
-    <h4>Bolean expressions for this graph:</h4>
-    {booleanExpressions.map((str, index) => (
-        <p key={index}>{str}</p>
-      ))}
-  </div>
-  <div>
-    <input type="button" name="view" value="Feasible Test Cases" id="riskView" onClick={() => handleTestcase()} />
+    <input type="button" name="view" value="Feasible Test Cases" id="riskView" onClick={() => handleTestcase()} style={{ marginRight: '10px' }}/>
     <input type="button" name="view" value="Minimized Test Cases" id="riskView" onClick={() => handleMinimizedTestcase()} />
   </div>
 </Panel>
